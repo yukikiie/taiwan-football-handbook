@@ -22,7 +22,7 @@
     @keyframes sunshine{50%{transform:rotate(9deg)}}@keyframes cloud-drift{50%{transform:translateX(7px)}}@keyframes little-sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
     @media(max-width:380px){.wrap{width:calc(100% - 28px)}.nav-inner{width:calc(100% - 28px);gap:8px;min-height:64px}.nav-links{margin-left:auto;gap:2px}.nav-links a{min-width:43px;font-size:13px;padding-inline:8px}.section-head h2{font-size:26px}.date-label{font-size:16px;letter-spacing:0}.flight-route{grid-template-columns:1fr 61px 1fr;padding-inline:14px}.flight-time{font-size:31px}.airport{font-size:12px}.hero h1{letter-spacing:.2px}.eyebrow{font-size:10px}.day-tab{min-width:62px}.day-tab strong{font-size:13px;padding-inline:5px}.day-summary{gap:10px;padding:13px}.summary-icon{width:48px;height:48px}.day-summary h3{font-size:16px}.hotel-body{padding-inline:15px}.hotel-body h3{font-size:19px}.check-label{font-size:14px}.paper-card{padding:19px 17px}.stop{grid-template-columns:38px 1fr;gap:13px}.stop:before{left:46px}.stop-body:before{left:-20px}.stop time{font-size:11px}.stop-card{padding-inline:11px}.editor-row{grid-template-columns:1fr}.dialog-head,.editor-body{padding:19px}.dialog-actions{padding:15px 19px;gap:10px}.dialog-actions .button{font-size:12px}.day-edit-tools{gap:6px}.day-edit-tools .button{padding-inline:8px;font-size:11px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
-    @media print{.topbar,.skip,.footer,.check-bottom,dialog,.toast,.sample-strip,.margin-note,.share-card,.reminder-card,.section-kicker{display:none!important}.wrap{width:100%;max-width:480px}.hero{padding-top:0}.hero-art{max-height:160px}.section{padding-top:22px}.flight,.hotel-card,.paper-card,.stop-card{break-inside:avoid}.paper-card{box-shadow:none}}
+    @media print{.topbar,.skip,.footer,.check-bottom,dialog,.toast,.sample-strip,.margin-note,.share-card,.reminder-card,.section-kicker{display:none!important}.wrap{width:100%;max-width:480px}.hero{padding-top:0}.hero-art{max-height:none}.section{padding-top:22px}.flight,.hotel-card,.paper-card,.stop-card{break-inside:avoid}.paper-card{box-shadow:none}}
 
     /* Reference typography: one rounded face, regular weight, readable notes. */
     html,body,button,input,select,textarea,h1,h2,h3,h4,h5,h6,p,span,strong,small,time,label,a,summary{font-family:var(--font-ui);font-weight:400}
@@ -126,6 +126,17 @@
     @media(max-width:420px){.day-summary.illustrated-summary{min-height:var(--summary-style-min-height,120px)}}
     @media(max-width:360px){.day-summary.illustrated-summary{min-height:var(--summary-style-min-height,116px)}}
     @media(max-width:540px){.style-controls{grid-template-columns:1fr}.editor-tabs{gap:7px}.editor-tabs button{font-size:13px;padding-inline:9px}}
+    /* Football cover: gentle independent motion, with a fully visible tall canvas. */
+    .cover-football,.cover-boot,.cover-trophy,.cover-cup-glint{transform-box:fill-box;transform-origin:center}
+    .cover-football{animation:cover-ball-rock 5.5s ease-in-out infinite}
+    .cover-boot{animation:cover-boot-sway 7s ease-in-out infinite}
+    .cover-trophy{animation:cover-cup-float 6s ease-in-out infinite}
+    .cover-cup-glint{animation:cover-cup-sparkle 3.2s ease-in-out infinite}
+    @keyframes cover-ball-rock{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+    @keyframes cover-boot-sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+    @keyframes cover-cup-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+    @keyframes cover-cup-sparkle{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.08)}}
+    @media(prefers-reduced-motion:reduce){.hero-art *{animation:none!important;transition:none!important}}
 </style><style id="appearance-overrides">:root{--appearance-hero-size:49px;--appearance-hero-color:#000000;--appearance-hero-weight:400;--appearance-eyebrow-size:14px;--appearance-tripDate-size:20px;--appearance-tripDate-color:#000000;--appearance-tripDate-weight:400;--appearance-navigation-color:#000000;--appearance-navigation-weight:400;--appearance-sections-color:#000000;--appearance-hotel-size:18px;--appearance-hotel-color:#000000;--appearance-hotel-weight:400;--appearance-checkTitle-color:#000000;--appearance-checkTitle-weight:400;--appearance-dayTitle-size:28px;--appearance-dayTitle-weight:400;--appearance-dates-color:#000000;--appearance-dates-weight:700;--appearance-stopTitle-size:18px;--appearance-stopTitle-color:#000000;--appearance-stopTitle-weight:400;--appearance-notes-size:14px;--appearance-notes-color:#2E2E2E;--appearance-notes-weight:400;--appearance-flightTime-color:#000000;--appearance-flightTime-weight:400;--appearance-timelineTime-size:15px;--appearance-timelineTime-color:#000000;--appearance-timelineTime-weight:400;--appearance-countdownNumber-size:39px;--appearance-countdownNumber-color:#000000;--appearance-countdownNumber-weight:700;--appearance-checkItems-size:18px;--appearance-checkItems-color:#000000;--appearance-checkItems-weight:400;--appearance-labels-size:18px;--appearance-labels-color:#3E3A39}.hero h1{font-size:var(--appearance-hero-size)!important;overflow-wrap:anywhere;color:var(--appearance-hero-color)!important;font-weight:var(--appearance-hero-weight)!important;font-synthesis:weight!important}.eyebrow{font-size:var(--appearance-eyebrow-size)!important;overflow-wrap:anywhere}.date-label,.date-label span{font-size:var(--appearance-tripDate-size)!important;overflow-wrap:anywhere;color:var(--appearance-tripDate-color)!important;font-weight:var(--appearance-tripDate-weight)!important;font-synthesis:weight!important}.nav-links a{color:var(--appearance-navigation-color)!important;font-weight:var(--appearance-navigation-weight)!important;font-synthesis:weight!important}.section-head h2{color:var(--appearance-sections-color)!important}.hotel-body h3{font-size:var(--appearance-hotel-size)!important;overflow-wrap:anywhere;color:var(--appearance-hotel-color)!important;font-weight:var(--appearance-hotel-weight)!important;font-synthesis:weight!important}#prepare .paper-card>h3{color:var(--appearance-checkTitle-color)!important;font-weight:var(--appearance-checkTitle-weight)!important;font-synthesis:weight!important}.day-summary h3{font-size:var(--appearance-dayTitle-size)!important;overflow-wrap:anywhere;font-weight:var(--appearance-dayTitle-weight)!important;font-synthesis:weight!important}.day-tab strong{color:var(--appearance-dates-color)!important;font-weight:var(--appearance-dates-weight)!important;font-synthesis:weight!important}.stop-card h4{font-size:var(--appearance-stopTitle-size)!important;overflow-wrap:anywhere;color:var(--appearance-stopTitle-color)!important;font-weight:var(--appearance-stopTitle-weight)!important;font-synthesis:weight!important}.stop-card p,.hotel-address,.hotel-route,.flight-note,.transport-note,.airport,.twac-details p{font-size:var(--appearance-notes-size)!important;overflow-wrap:anywhere;color:var(--appearance-notes-color)!important;font-weight:var(--appearance-notes-weight)!important;font-synthesis:weight!important}.flight-time{color:var(--appearance-flightTime-color)!important;font-weight:var(--appearance-flightTime-weight)!important;font-synthesis:weight!important}.stop time{font-size:var(--appearance-timelineTime-size)!important;overflow-wrap:anywhere;color:var(--appearance-timelineTime-color)!important;font-weight:var(--appearance-timelineTime-weight)!important;font-synthesis:weight!important}.countdown strong{font-size:var(--appearance-countdownNumber-size)!important;overflow-wrap:anywhere;color:var(--appearance-countdownNumber-color)!important;font-weight:var(--appearance-countdownNumber-weight)!important;font-synthesis:weight!important}#checklist .check-label span{font-size:var(--appearance-checkItems-size)!important;overflow-wrap:anywhere;color:var(--appearance-checkItems-color)!important;font-weight:var(--appearance-checkItems-weight)!important;font-synthesis:weight!important}.flight-head,.flight-head span,.hotel-head,.hotel-head span,.tag-label,.day-summary small,.day-tab small,.check-progress,.check-bottom small,.flight-duration,.twac-window,.footer>span{font-size:var(--appearance-labels-size)!important;overflow-wrap:anywhere;color:var(--appearance-labels-color)!important}.flight-route>div{min-width:0}</style>
 <script type="text/plain" id="font-license">
 Copyright 2025 The Huninn Project Authors (https://github.com/justfont/Huninn)
@@ -243,78 +254,137 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="sample-strip"><span id="sample-label">我們的台灣足球小手帳。</span><span>一起出發，一起加油。</span></div>
     <p id="storage-warning" class="storage-warning hidden" role="status">此瀏覽器暫時無法儲存變更，請下載 HTML 保存更新後的手帳。</p>
     <section class="hero" aria-labelledby="trip-title">
-      <div class="hero-art" id="hero-art" role="img" aria-label="台灣山城、校園足球場及足球的粉彩插畫"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" fill="none" role="img" aria-label="Pastel Taiwan mountain town and school football pitch">
-  <rect width="960" height="320" rx="24" fill="#fffaf0"></rect>
+      <div class="hero-art" id="hero-art" role="img" aria-label="粉彩足球場、星星獎盃及足球裝備的插畫"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" fill="none" role="img" aria-label="粉彩足球場、簡約星星獎盃、足球、球鞋、手套、哨子、戰術板及小球場插畫">
   <defs>
-    <clipPath id="hero-pitch-markings"><path d="M318 200H743L839 284H226Z"></path></clipPath>
-    <clipPath id="hero-large-ball"><circle cx="875" cy="268" r="35"></circle></clipPath>
-    <clipPath id="hero-small-ball"><circle cx="696" cy="274" r="22"></circle></clipPath>
-    <clipPath id="hero-goal-net"><rect x="733" y="168" width="117" height="64"></rect></clipPath>
-    <clipPath id="hero-goal-side"><path d="M850 168L865 156V220L850 232Z"></path></clipPath>
+    <clipPath id="hero-collage-field"><rect x="32" y="30" width="896" height="660" rx="18"/></clipPath>
+    <clipPath id="hero-collage-football"><circle cx="755" cy="305" r="91"/></clipPath>
   </defs>
-  <g stroke="#3e3a39" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-    <g class="hero-sun">
-    <circle cx="762" cy="66" r="31" fill="#f6d27a"></circle>
-    <path d="M762 20v-8m0 108v-8m-46-46h-8m108 0h-8m-79-33-6-6m78 78-6-6m0-66 6-6m-78 78 6-6"></path>
+  <rect width="960" height="720" fill="#fffaf0"/>
+  <g stroke="#3e3a39" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="32" y="30" width="896" height="660" rx="18" fill="#cce3b8"/>
+    <g clip-path="url(#hero-collage-field)" stroke="#fffaf0" stroke-width="6">
+      <path d="M64 62H896V658H64Z"/>
+      <path d="M480 62V658"/>
+      <circle cx="480" cy="360" r="105"/>
+      <circle cx="480" cy="360" r="7" fill="#fffaf0" stroke="none"/>
+      <path d="M64 252H201V468H64M64 300H117V420H64M896 252H759V468H896M896 300H843V420H896"/>
+      <path d="M201 290C255 313 255 407 201 430M759 290C705 313 705 407 759 430"/>
+      <path d="M64 94Q96 94 96 62M864 62Q864 94 896 94M64 626Q96 626 96 658M864 658Q864 626 896 626"/>
     </g>
-    <path class="cloud-doodle" d="M84 79C78 69 86 59 97 60C94 44 116 37 127 50C138 30 163 39 164 59C180 54 194 66 189 79Z" fill="#fff"></path>
-    <path class="cloud-doodle second" d="M454 58C450 49 457 41 468 42C467 27 484 22 493 34C502 15 527 23 527 42C541 37 554 47 549 58Z" fill="#fff"></path>
-    <path class="cloud-doodle third" d="M583 73C580 66 586 60 594 61C593 49 609 44 616 55C625 42 641 48 642 62C653 59 662 66 659 73Z" fill="#fff"></path>
-    <path d="M-19 197 96 97c14-12 26-13 41 0l117 98 116-112c18-17 32-15 49 2l115 112 103-83c15-12 29-13 45 0l111 89 65-50c14-11 25-10 39 2l82 62v60H-19Z" fill="#b9daa5"></path>
-    <path d="M-12 219c89-42 166-34 240-3 77 32 116-21 203-28 92-7 139 30 207 31 92 2 167-35 334-8v109H-12Z" fill="#dce9c9"></path>
-    <path d="M28 163h74v77H28Z" fill="#f6d27a"></path>
-    <path d="m19 163 47-32 45 32Z" fill="#f2a497"></path>
-    <path d="M43 180h17v19H43Zm30 0h17v19H73Z" fill="#fffaf0"></path>
-    <path d="M56 240v-26h19v26" fill="#f2a497"></path>
-    <path d="M106 137h68v105h-68Z" fill="#f2a497"></path>
-    <path d="M100 137h80v-13h-80Zm13-13v-12h54v12" fill="#fffaf0"></path>
-    <path d="M120 154h14v18h-14Zm27 0h14v18h-14Zm-27 31h14v18h-14Zm27 0h14v18h-14Z" fill="#a8d3e6"></path>
-    <path d="M129 242v-24h23v24" fill="#f6d27a"></path>
-    <path d="M179 183h61v59h-61Z" fill="#a8d3e6"></path>
-    <path d="m171 183 38-26 40 26Z" fill="#fffaf0"></path>
-    <path d="M190 198h13v16h-13Zm24 0h13v16h-13Z" fill="#f6d27a"></path>
-    <path d="M258 239v-43m0 29-14-14m14 1 15-17"></path>
-    <path d="M247 173c-4-17 23-25 30-10 16-1 19 21 6 29 1 16-22 22-29 8-19 5-28-17-7-27Z" fill="#b9daa5"></path>
-    <path d="M305 186h451l132 114H177Z" fill="#8fba8d"></path>
-    <path d="M318 200H743L839 284H226Z" stroke="#fffaf0"></path>
-    <g clip-path="url(#hero-pitch-markings)" stroke="#fffaf0" fill="none">
-      <path d="M530.5 200L532.5 284"></path>
-      <ellipse cx="531.5" cy="242" rx="83" ry="19"></ellipse>
-      <path d="M298 218H377L343 266H246"></path>
-      <path d="M284 231H318L298 253H260"></path>
-      <path d="M764 218H685L721 266H818"></path>
-      <path d="M779 231H744L768 253H803"></path>
-      <circle cx="531.5" cy="242" r="2.5" fill="#fffaf0" stroke="none"></circle>
+
+    <!-- Small, clearly shaped confetti, with the original four pastel colours. -->
+    <g class="cover-confetti">
+      <path d="M86 111L94 130L115 133L99 147L103 168L85 157L67 168L71 147L55 133L77 130Z" fill="#f6d27a"/>
+      <path d="M360 79L366 93L382 95L370 106L373 122L359 114L346 123L348 107L336 97L352 94Z" fill="#f2a497"/>
+      <path d="M610 379L616 393L632 395L620 406L623 422L609 414L596 423L598 407L586 397L602 394Z" fill="#a8d3e6"/>
+      <path d="M128 532L136 551L157 553L141 567L145 588L127 578L109 589L112 567L96 555L118 551Z" fill="#f6d27a"/>
+      <path d="M862 191L868 205L884 207L872 218L875 234L861 226L848 235L850 219L838 209L854 206Z" fill="#f6d27a"/>
+      <path d="M353 466L364 480L350 492L339 478Z" fill="#f2a497"/>
+      <path d="M808 113L819 124L808 137L797 125Z" fill="#a8d3e6"/>
+      <path d="M192 81L199 89L191 99L183 91Z" fill="#a8d3e6"/>
+      <path d="M656 479L668 489L658 503L646 493Z" fill="#f6d27a"/>
+      <circle cx="307" cy="318" r="7" fill="#a8d3e6"/>
+      <circle cx="826" cy="642" r="7" fill="#f2a497"/>
+      <circle cx="598" cy="95" r="7" fill="#f6d27a"/>
     </g>
-    <path d="M733 168H850V232H733Z" fill="#edf2e3" stroke="none"></path>
-    <path d="M850 168L865 156V220L850 232Z" fill="#e0e8d4" stroke="none"></path>
-    <path d="M733 168L748 156H865L850 168Z" fill="#f7f9f0" stroke="none"></path>
-    <g clip-path="url(#hero-goal-net)" stroke="#c6ceb8" stroke-width="1.6">
-      <path d="M746 168V232M761 168V232M776 168V232M791 168V232M806 168V232M821 168V232M836 168V232"></path>
-      <path d="M733 180H850M733 193H850M733 206H850M733 219H850M733 231H850"></path>
+
+    <!-- One unbranded football boot, with a soft blue heel and simple laces. -->
+    <g transform="translate(-5 -8) rotate(-14 225 190)">
+      <g class="cover-boot">
+        <path d="M108 127Q116 109 130 120L166 156L192 144L214 176C245 181 260 203 300 211Q327 217 330 236Q332 254 308 260L125 255Q103 252 104 234Z" fill="#fffaf0"/>
+        <path d="M108 139L134 169L155 167L151 224L106 224Z" fill="#a8d3e6"/>
+        <path d="M191 145Q189 167 207 182L239 204" fill="#f6d27a"/>
+        <path d="M178 174L210 160M193 188L223 177M210 201L237 193"/>
+        <path d="M171 211L190 232M202 216L218 233" stroke="#f2a497" stroke-width="12"/>
+        <path d="M105 233Q204 254 330 237L326 255Q226 279 121 258L105 253Z" fill="#fffaf0"/>
+        <path d="M131 260V273Q137 281 144 274L146 263M187 266V279Q194 285 201 278V267M251 264V277Q258 283 265 275L267 262M302 257L301 269Q309 275 315 266L316 253" fill="#f6d27a"/>
+      </g>
     </g>
-    <g clip-path="url(#hero-goal-side)" stroke="#d6d9c5" stroke-width="1.6">
-      <path d="M857 162V227M850 180L865 168M850 193L865 181M850 206L865 194M850 219L865 207"></path>
+
+    <!-- A rounded whistle and its loose loop. -->
+    <g transform="translate(641 85) rotate(15 90 45)">
+      <path d="M111 22C118-17 163-17 168 14C175 42 154 56 145 75" stroke="#807b73" stroke-width="9"/>
+      <path d="M111 22C127 0 146 1 148 18C151 33 140 44 133 54" stroke="#fffaf0" stroke-width="4"/>
+      <circle cx="89" cy="52" r="34" fill="#a8d3e6"/>
+      <path d="M14 33H74V70H14Z" fill="#fffaf0"/>
+      <path d="M14 59H74V70H14Z" fill="#dce9c9"/>
+      <path d="M29 33H55V43H29Z" fill="#3e3a39" stroke-width="3"/>
+      <path d="M105 39Q113 51 107 62" stroke="#fffaf0"/>
     </g>
-    <path d="M733 168L748 156H865V220L850 232M850 168L865 156" fill="none" stroke="#807b73" stroke-width="2.5"></path>
-    <path d="M733 232V168H850V232" fill="none"></path>
-    <g class="hero-ball hero-ball-large">
-    <circle cx="875" cy="268" r="35" fill="#fffaf0"></circle>
-    <g clip-path="url(#hero-large-ball)">
-    <path d="m875 251 17 12-6 19h-22l-6-19Z" fill="#3e3a39"></path>
-    <path d="m875 251 1-17m16 29 16-5m-22 24 9 13m-31-13-10 13m4-32-16-5"></path>
-    <path d="m869 234 7 8 8-7m24 17-7 7 8 9m-7 22-10-1-4 11m-31-1-3-10-12 2m-2-25 9-5-2-12" fill="#3e3a39"></path>
+
+    <!-- A simple, friendly cup: wide bowl, round handles, one star. -->
+    <g class="cover-trophy">
+      <path d="M394 209H363C324 209 326 265 348 287Q371 310 410 302L403 273Q376 279 365 261Q357 247 362 239H397Z" fill="#f6d27a"/>
+      <path d="M566 209H597C636 209 634 265 612 287Q589 310 550 302L557 273Q584 279 595 261Q603 247 598 239H563Z" fill="#f6d27a"/>
+      <path d="M461 351H499V421H461Z" fill="#f6d27a"/>
+      <path d="M441 417H519L538 442H422Z" fill="#f6d27a"/>
+      <rect x="408" y="439" width="144" height="38" rx="10" fill="#fffaf0"/>
+      <path d="M411 459H549V467Q549 474 541 474H419Q411 474 411 467Z" fill="#f2a497" stroke="none"/>
+      <path d="M382 183Q480 172 578 183L563 280C554 329 523 365 480 365C437 365 406 329 397 280Z" fill="#f6d27a"/>
+      <path d="M401 204Q480 195 559 204" stroke="#fff1be" stroke-width="10"/>
+      <circle cx="480" cy="269" r="42" fill="#fff1be" stroke="none"/>
+      <path d="M480 238L490 257L512 260L496 276L500 298L480 287L460 298L464 276L448 260L470 257Z" fill="#fffaf0" stroke-width="5"/>
     </g>
-    <circle cx="875" cy="268" r="35" fill="none"></circle>
+    <g class="cover-cup-glint" stroke="#fffaf0" stroke-width="5">
+      <path d="M584 157V183M571 170H597"/>
+      <path d="M403 347V365M394 356H412"/>
     </g>
-    <g class="hero-ball hero-ball-small">
-    <circle cx="696" cy="274" r="22" fill="#fffaf0"></circle>
-    <g clip-path="url(#hero-small-ball)">
-    <path d="m696 263 10 8-4 12h-13l-4-12Z" fill="#3e3a39"></path>
-    <path d="m696 263 1-11m9 19 10-3m-14 15 6 9m-19-9-6 8m2-20-10-3"></path>
+
+    <!-- The same cream-and-charcoal football drawing language as the handbook. -->
+    <g class="cover-football">
+      <circle cx="755" cy="305" r="91" fill="#fffaf0"/>
+      <g clip-path="url(#hero-collage-football)">
+        <path d="M755 260L796 290L780 338H730L714 290Z" fill="#3e3a39"/>
+        <path d="M755 260V214M796 290L842 275M780 338L809 378M730 338L701 378M714 290L669 275"/>
+        <path d="M721 215L754 238L790 215ZM843 249L816 288L845 324ZM837 352L792 346L781 399ZM719 397L724 347L678 352ZM664 320L699 286L672 247Z" fill="#3e3a39"/>
+      </g>
+      <circle cx="755" cy="305" r="91"/>
     </g>
-    <circle cx="696" cy="274" r="22" fill="none"></circle>
+
+    <!-- Goalkeeper glove, drawn with a few large shapes rather than fine seams. -->
+    <g transform="translate(120 337) rotate(-16 95 109)">
+      <path d="M66 179L39 143Q23 121 16 99Q12 86 24 81Q35 78 42 91L56 109L50 41Q48 25 62 23Q76 22 78 38L83 84V19Q83 4 97 5Q110 5 110 20L109 82L117 31Q120 17 133 20Q146 24 142 38L132 92L148 57Q154 45 166 52Q176 59 169 72L148 130Q136 162 111 177L106 195L66 194Z" fill="#fffaf0"/>
+      <path d="M64 122Q88 103 114 120Q128 144 108 161H80Q65 147 64 122Z" fill="#f7c6bc" stroke-width="4"/>
+      <path d="M78 111L82 95M105 110L108 94M127 117L133 103" stroke-width="4"/>
+      <rect x="53" y="178" width="68" height="39" rx="9" fill="#a8d3e6"/>
+      <path d="M66 190H107" stroke="#fffaf0" stroke-width="6"/>
     </g>
+
+    <!-- A compact tactics board with a readable, uncluttered little pitch. -->
+    <g transform="translate(744 433) rotate(13 70 100)">
+      <rect width="140" height="194" rx="12" fill="#fffaf0"/>
+      <rect x="13" y="23" width="114" height="155" rx="3" fill="#8fba8d" stroke-width="4"/>
+      <g stroke="#fffaf0" stroke-width="3.5">
+        <path d="M22 33H118V167H22ZM22 100H118M49 33V57H91V33M49 167V143H91V167"/>
+        <circle cx="70" cy="100" r="17"/>
+      </g>
+      <path d="M44-7H96V22H44Z" fill="#a8d3e6"/>
+      <rect x="58" y="-12" width="24" height="13" rx="5" fill="#fffaf0" stroke-width="4"/>
+      <circle cx="44" cy="76" r="6" fill="#fffaf0" stroke-width="3"/>
+      <circle cx="94" cy="126" r="6" fill="#f6d27a" stroke-width="3"/>
+      <path d="M88 62L99 73M99 62L88 73M39 128L50 139M50 128L39 139M53 76Q80 76 88 99M78 96L89 101L92 90" stroke="#fffaf0" stroke-width="4"/>
+    </g>
+
+    <!-- Little flags and a soft, simplified stadium along the bottom. -->
+    <g class="cover-stadium-flags" stroke-width="4.5">
+      <path d="M341 559V524L366 533L341 543" fill="#f2a497"/>
+      <path d="M397 547V509L423 518L397 528" fill="#f6d27a"/>
+      <path d="M452 539V503L477 512L452 522" fill="#a8d3e6"/>
+      <path d="M508 539V503L533 512L508 522" fill="#f2a497"/>
+      <path d="M563 547V509L589 518L563 528" fill="#a8d3e6"/>
+      <path d="M619 559V524L644 533L619 543" fill="#f6d27a"/>
+    </g>
+    <g>
+      <path d="M285 581Q480 526 675 581L654 681H306Z" fill="#a8d3e6"/>
+      <path d="M290 585Q480 543 670 585L661 611Q480 573 299 611Z" fill="#fffaf0"/>
+      <path d="M309 619L321 676M362 607L371 677M414 600L420 678M546 600L540 678M598 607L589 677M651 619L639 676" stroke="#fffaf0" stroke-width="10"/>
+      <path d="M447 618H513V681H447Z" fill="#fffaf0"/>
+      <path d="M459 630H501V681H459Z" fill="#f2a497" stroke-width="4"/>
+      <path d="M480 632V679" stroke-width="4"/>
+      <path d="M309 681H651"/>
+    </g>
+    <path d="M188 613V653M188 613L226 623L188 638Z" fill="#f2a497"/>
+    <circle cx="188" cy="609" r="7" fill="#fffaf0" stroke-width="4"/>
   </g>
 </svg>
 </div>
