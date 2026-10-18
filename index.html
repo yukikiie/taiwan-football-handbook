@@ -126,16 +126,47 @@
     @media(max-width:420px){.day-summary.illustrated-summary{min-height:var(--summary-style-min-height,120px)}}
     @media(max-width:360px){.day-summary.illustrated-summary{min-height:var(--summary-style-min-height,116px)}}
     @media(max-width:540px){.style-controls{grid-template-columns:1fr}.editor-tabs{gap:7px}.editor-tabs button{font-size:13px;padding-inline:9px}}
-    /* Football cover: gentle independent motion, with a fully visible tall canvas. */
-    .cover-football,.cover-boot,.cover-trophy,.cover-cup-glint{transform-box:fill-box;transform-origin:center}
-    .cover-football{animation:cover-ball-rock 5.5s ease-in-out infinite}
-    .cover-boot{animation:cover-boot-sway 7s ease-in-out infinite}
-    .cover-trophy{animation:cover-cup-float 6s ease-in-out infinite}
-    .cover-cup-glint{animation:cover-cup-sparkle 3.2s ease-in-out infinite}
-    @keyframes cover-ball-rock{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
-    @keyframes cover-boot-sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
-    @keyframes cover-cup-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-    @keyframes cover-cup-sparkle{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.08)}}
+    /* Cover motion: bounce and roll, trophy shine, wind and staggered celebration. */
+    .hero-art[role="button"]{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    .hero-art[role="button"]:focus-visible{outline:3px solid #3e3a39;outline-offset:6px}
+    .cover-ball-bounce,.cover-football,.cover-ball-shadow,.cover-boot,.cover-trophy,.cover-trophy-star,.cover-whistle,.cover-glove,.cover-confetti>*,.cover-cup-glint>*,.cover-flag{transform-box:fill-box;transform-origin:center}
+    .cover-ball-bounce{transform-origin:center bottom;animation:cover-ball-bounce 4.8s infinite}
+    .cover-football{transform-box:view-box;transform-origin:755px 305px;animation:cover-ball-roll 9.6s ease-in-out infinite}
+    .cover-ball-shadow{animation:cover-ball-shadow 4.8s infinite}
+    .cover-boot{animation:cover-boot-sway 6.2s ease-in-out infinite}
+    .cover-whistle{transform-origin:75% 12%;animation:cover-whistle-swing 3.6s ease-in-out infinite}
+    .cover-whistle-notes{animation:cover-whistle-puff 3.6s ease-out infinite}
+    .cover-glove{transform-origin:50% 90%;animation:cover-glove-wave 7s ease-in-out infinite}
+    .cover-trophy{transform-origin:center bottom;animation:cover-cup-float 5.6s ease-in-out infinite}
+    .cover-trophy-star{animation:cover-star-glow 5.6s ease-in-out infinite}
+    .cover-trophy-shine{opacity:0;animation:cover-cup-shine 5.6s ease-in-out infinite}
+    .cover-cup-glint>*{animation:cover-cup-sparkle 3.1s ease-in-out infinite}
+    .cover-cup-glint>:nth-child(2){animation-delay:-1.4s}
+    .cover-confetti>*{animation:cover-confetti-drift 4.6s ease-in-out infinite}
+    .cover-confetti>:nth-child(3n+1){animation-delay:-1.5s;animation-duration:5.2s}
+    .cover-confetti>:nth-child(3n+2){animation-delay:-3s;animation-duration:4.1s}
+    .cover-confetti>:nth-child(even){animation-direction:reverse}
+    .cover-flag{transform-origin:left center;animation:cover-flag-wave 2.2s ease-in-out infinite}
+    .cover-flag:nth-child(4n){animation-delay:-.7s}
+    .cover-flag:nth-child(6n){animation-delay:-1.4s}
+    .hero-art.is-celebrating .cover-trophy{animation:cover-cup-cheer 1.4s ease-in-out both}
+    .hero-art.is-celebrating .cover-confetti>*{animation:cover-confetti-cheer 1.4s ease-in-out both}
+    .hero-art.is-celebrating .cover-cup-glint>*{animation:cover-cup-sparkle .7s ease-in-out 2}
+    @keyframes cover-ball-bounce{0%,12%,72%,100%{transform:translateY(0) scale(1)}16%{transform:translateY(3px) scale(1.04,.96);animation-timing-function:cubic-bezier(.2,.65,.4,1)}33%{transform:translateY(-28px) scale(.99,1.01);animation-timing-function:cubic-bezier(.6,0,.8,.35)}49%{transform:translateY(0) scale(1.05,.95)}58%{transform:translateY(-10px) scale(.99,1.01)}67%{transform:translateY(1px) scale(1.02,.98)}}
+    @keyframes cover-ball-roll{0%,12%{transform:rotate(0)}38%{transform:rotate(110deg)}55%,62%{transform:rotate(180deg)}88%{transform:rotate(290deg)}100%{transform:rotate(360deg)}}
+    @keyframes cover-ball-shadow{0%,16%,49%,72%,100%{transform:scaleX(1);opacity:.22}33%{transform:scaleX(.7);opacity:.1}58%{transform:scaleX(.86);opacity:.16}}
+    @keyframes cover-boot-sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(4deg)}}
+    @keyframes cover-whistle-swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+    @keyframes cover-whistle-puff{0%,42%,76%,100%{opacity:0;transform:translateX(0)}52%{opacity:.9}70%{opacity:0;transform:translateX(-12px)}}
+    @keyframes cover-glove-wave{0%,30%,70%,100%{transform:rotate(0)}43%{transform:rotate(-4deg)}56%{transform:rotate(3deg)}}
+    @keyframes cover-cup-float{0%,100%{transform:translateY(0) rotate(-.8deg)}50%{transform:translateY(-9px) rotate(.8deg)}}
+    @keyframes cover-star-glow{0%,28%,68%,100%{transform:scale(1)}46%{transform:scale(1.1)}}
+    @keyframes cover-cup-shine{0%,24%{opacity:0;transform:translateX(-150px)}30%{opacity:.6}55%{opacity:.6;transform:translateX(230px)}61%,100%{opacity:0;transform:translateX(250px)}}
+    @keyframes cover-cup-sparkle{0%,12%,100%{opacity:.15;transform:scale(.55) rotate(-10deg)}48%{opacity:1;transform:scale(1.2) rotate(10deg)}72%{opacity:.6;transform:scale(.9)}}
+    @keyframes cover-confetti-drift{0%,100%{transform:translateY(3px) rotate(-7deg);opacity:.65}50%{transform:translateY(-5px) rotate(8deg);opacity:1}}
+    @keyframes cover-flag-wave{0%,100%{transform:skewY(-7deg) scaleX(.91)}50%{transform:skewY(6deg) scaleX(1.04)}}
+    @keyframes cover-cup-cheer{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-14px) rotate(-2deg)}52%{transform:translateY(-7px) rotate(2deg)}76%{transform:translateY(-11px) rotate(-1deg)}}
+    @keyframes cover-confetti-cheer{0%,100%{transform:translateY(0) scale(1);opacity:1}35%{transform:translateY(-12px) scale(1.18) rotate(15deg);opacity:.75}70%{transform:translateY(-4px) scale(.95) rotate(-8deg);opacity:1}}
     @media(prefers-reduced-motion:reduce){.hero-art *{animation:none!important;transition:none!important}}
 </style><style id="appearance-overrides">:root{--appearance-hero-size:49px;--appearance-hero-color:#000000;--appearance-hero-weight:400;--appearance-eyebrow-size:14px;--appearance-tripDate-size:20px;--appearance-tripDate-color:#000000;--appearance-tripDate-weight:400;--appearance-navigation-color:#000000;--appearance-navigation-weight:400;--appearance-sections-color:#000000;--appearance-hotel-size:18px;--appearance-hotel-color:#000000;--appearance-hotel-weight:400;--appearance-checkTitle-color:#000000;--appearance-checkTitle-weight:400;--appearance-dayTitle-size:28px;--appearance-dayTitle-weight:400;--appearance-dates-color:#000000;--appearance-dates-weight:700;--appearance-stopTitle-size:18px;--appearance-stopTitle-color:#000000;--appearance-stopTitle-weight:400;--appearance-notes-size:14px;--appearance-notes-color:#2E2E2E;--appearance-notes-weight:400;--appearance-flightTime-color:#000000;--appearance-flightTime-weight:400;--appearance-timelineTime-size:15px;--appearance-timelineTime-color:#000000;--appearance-timelineTime-weight:400;--appearance-countdownNumber-size:39px;--appearance-countdownNumber-color:#000000;--appearance-countdownNumber-weight:700;--appearance-checkItems-size:18px;--appearance-checkItems-color:#000000;--appearance-checkItems-weight:400;--appearance-labels-size:18px;--appearance-labels-color:#3E3A39}.hero h1{font-size:var(--appearance-hero-size)!important;overflow-wrap:anywhere;color:var(--appearance-hero-color)!important;font-weight:var(--appearance-hero-weight)!important;font-synthesis:weight!important}.eyebrow{font-size:var(--appearance-eyebrow-size)!important;overflow-wrap:anywhere}.date-label,.date-label span{font-size:var(--appearance-tripDate-size)!important;overflow-wrap:anywhere;color:var(--appearance-tripDate-color)!important;font-weight:var(--appearance-tripDate-weight)!important;font-synthesis:weight!important}.nav-links a{color:var(--appearance-navigation-color)!important;font-weight:var(--appearance-navigation-weight)!important;font-synthesis:weight!important}.section-head h2{color:var(--appearance-sections-color)!important}.hotel-body h3{font-size:var(--appearance-hotel-size)!important;overflow-wrap:anywhere;color:var(--appearance-hotel-color)!important;font-weight:var(--appearance-hotel-weight)!important;font-synthesis:weight!important}#prepare .paper-card>h3{color:var(--appearance-checkTitle-color)!important;font-weight:var(--appearance-checkTitle-weight)!important;font-synthesis:weight!important}.day-summary h3{font-size:var(--appearance-dayTitle-size)!important;overflow-wrap:anywhere;font-weight:var(--appearance-dayTitle-weight)!important;font-synthesis:weight!important}.day-tab strong{color:var(--appearance-dates-color)!important;font-weight:var(--appearance-dates-weight)!important;font-synthesis:weight!important}.stop-card h4{font-size:var(--appearance-stopTitle-size)!important;overflow-wrap:anywhere;color:var(--appearance-stopTitle-color)!important;font-weight:var(--appearance-stopTitle-weight)!important;font-synthesis:weight!important}.stop-card p,.hotel-address,.hotel-route,.flight-note,.transport-note,.airport,.twac-details p{font-size:var(--appearance-notes-size)!important;overflow-wrap:anywhere;color:var(--appearance-notes-color)!important;font-weight:var(--appearance-notes-weight)!important;font-synthesis:weight!important}.flight-time{color:var(--appearance-flightTime-color)!important;font-weight:var(--appearance-flightTime-weight)!important;font-synthesis:weight!important}.stop time{font-size:var(--appearance-timelineTime-size)!important;overflow-wrap:anywhere;color:var(--appearance-timelineTime-color)!important;font-weight:var(--appearance-timelineTime-weight)!important;font-synthesis:weight!important}.countdown strong{font-size:var(--appearance-countdownNumber-size)!important;overflow-wrap:anywhere;color:var(--appearance-countdownNumber-color)!important;font-weight:var(--appearance-countdownNumber-weight)!important;font-synthesis:weight!important}#checklist .check-label span{font-size:var(--appearance-checkItems-size)!important;overflow-wrap:anywhere;color:var(--appearance-checkItems-color)!important;font-weight:var(--appearance-checkItems-weight)!important;font-synthesis:weight!important}.flight-head,.flight-head span,.hotel-head,.hotel-head span,.tag-label,.day-summary small,.day-tab small,.check-progress,.check-bottom small,.flight-duration,.twac-window,.footer>span{font-size:var(--appearance-labels-size)!important;overflow-wrap:anywhere;color:var(--appearance-labels-color)!important}.flight-route>div{min-width:0}</style>
 <script type="text/plain" id="font-license">
@@ -254,10 +285,11 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <div class="sample-strip"><span id="sample-label">我們的台灣足球小手帳。</span><span>一起出發，一起加油。</span></div>
     <p id="storage-warning" class="storage-warning hidden" role="status">此瀏覽器暫時無法儲存變更，請下載 HTML 保存更新後的手帳。</p>
     <section class="hero" aria-labelledby="trip-title">
-      <div class="hero-art" id="hero-art" role="img" aria-label="粉彩足球場、星星獎盃及足球裝備的插畫"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" fill="none" role="img" aria-label="粉彩足球場、簡約星星獎盃、足球、球鞋、手套、哨子、戰術板及小球場插畫">
+      <div class="hero-art" id="hero-art" role="button" tabindex="0" aria-label="重播封面足球慶祝動畫" title="點一下，讓獎盃與彩紙慶祝"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" fill="none" role="img" aria-label="粉彩足球場、簡約星星獎盃、足球、球鞋、手套、哨子、戰術板及小球場插畫">
   <defs>
     <clipPath id="hero-collage-field"><rect x="32" y="30" width="896" height="660" rx="18"/></clipPath>
     <clipPath id="hero-collage-football"><circle cx="755" cy="305" r="91"/></clipPath>
+    <clipPath id="hero-cup-shine"><path d="M382 183Q480 172 578 183L563 280C554 329 523 365 480 365C437 365 406 329 397 280Z"/></clipPath>
   </defs>
   <rect width="960" height="720" fill="#fffaf0"/>
   <g stroke="#3e3a39" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
@@ -303,6 +335,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
     <!-- A rounded whistle and its loose loop. -->
     <g transform="translate(641 85) rotate(15 90 45)">
+      <g class="cover-whistle">
       <path d="M111 22C118-17 163-17 168 14C175 42 154 56 145 75" stroke="#807b73" stroke-width="9"/>
       <path d="M111 22C127 0 146 1 148 18C151 33 140 44 133 54" stroke="#fffaf0" stroke-width="4"/>
       <circle cx="89" cy="52" r="34" fill="#a8d3e6"/>
@@ -310,6 +343,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <path d="M14 59H74V70H14Z" fill="#dce9c9"/>
       <path d="M29 33H55V43H29Z" fill="#3e3a39" stroke-width="3"/>
       <path d="M105 39Q113 51 107 62" stroke="#fffaf0"/>
+      <g class="cover-whistle-notes" stroke="#fffaf0" stroke-width="5">
+        <path d="M-6 32L-19 24M-9 49H-27M-6 65L-19 73"/>
+      </g>
+      </g>
     </g>
 
     <!-- A simple, friendly cup: wide bowl, round handles, one star. -->
@@ -323,7 +360,10 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <path d="M382 183Q480 172 578 183L563 280C554 329 523 365 480 365C437 365 406 329 397 280Z" fill="#f6d27a"/>
       <path d="M401 204Q480 195 559 204" stroke="#fff1be" stroke-width="10"/>
       <circle cx="480" cy="269" r="42" fill="#fff1be" stroke="none"/>
-      <path d="M480 238L490 257L512 260L496 276L500 298L480 287L460 298L464 276L448 260L470 257Z" fill="#fffaf0" stroke-width="5"/>
+      <path class="cover-trophy-star" d="M480 238L490 257L512 260L496 276L500 298L480 287L460 298L464 276L448 260L470 257Z" fill="#fffaf0" stroke-width="5"/>
+      <g clip-path="url(#hero-cup-shine)" stroke="none" pointer-events="none">
+        <path class="cover-trophy-shine" d="M360 160H398L470 382H432Z" fill="#fffaf0"/>
+      </g>
     </g>
     <g class="cover-cup-glint" stroke="#fffaf0" stroke-width="5">
       <path d="M584 157V183M571 170H597"/>
@@ -331,6 +371,8 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     </g>
 
     <!-- The same cream-and-charcoal football drawing language as the handbook. -->
+    <ellipse class="cover-ball-shadow" cx="755" cy="407" rx="62" ry="7" fill="#66845b" stroke="none" opacity=".22"/>
+    <g class="cover-ball-bounce">
     <g class="cover-football">
       <circle cx="755" cy="305" r="91" fill="#fffaf0"/>
       <g clip-path="url(#hero-collage-football)">
@@ -340,14 +382,17 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       </g>
       <circle cx="755" cy="305" r="91"/>
     </g>
+    </g>
 
     <!-- Goalkeeper glove, drawn with a few large shapes rather than fine seams. -->
     <g transform="translate(120 337) rotate(-16 95 109)">
+      <g class="cover-glove">
       <path d="M66 179L39 143Q23 121 16 99Q12 86 24 81Q35 78 42 91L56 109L50 41Q48 25 62 23Q76 22 78 38L83 84V19Q83 4 97 5Q110 5 110 20L109 82L117 31Q120 17 133 20Q146 24 142 38L132 92L148 57Q154 45 166 52Q176 59 169 72L148 130Q136 162 111 177L106 195L66 194Z" fill="#fffaf0"/>
       <path d="M64 122Q88 103 114 120Q128 144 108 161H80Q65 147 64 122Z" fill="#f7c6bc" stroke-width="4"/>
       <path d="M78 111L82 95M105 110L108 94M127 117L133 103" stroke-width="4"/>
       <rect x="53" y="178" width="68" height="39" rx="9" fill="#a8d3e6"/>
       <path d="M66 190H107" stroke="#fffaf0" stroke-width="6"/>
+      </g>
     </g>
 
     <!-- A compact tactics board with a readable, uncluttered little pitch. -->
@@ -367,12 +412,18 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 
     <!-- Little flags and a soft, simplified stadium along the bottom. -->
     <g class="cover-stadium-flags" stroke-width="4.5">
-      <path d="M341 559V524L366 533L341 543" fill="#f2a497"/>
-      <path d="M397 547V509L423 518L397 528" fill="#f6d27a"/>
-      <path d="M452 539V503L477 512L452 522" fill="#a8d3e6"/>
-      <path d="M508 539V503L533 512L508 522" fill="#f2a497"/>
-      <path d="M563 547V509L589 518L563 528" fill="#a8d3e6"/>
-      <path d="M619 559V524L644 533L619 543" fill="#f6d27a"/>
+      <path d="M341 559V524"/>
+      <path class="cover-flag" d="M341 524L366 533L341 543Z" fill="#f2a497"/>
+      <path d="M397 547V509"/>
+      <path class="cover-flag" d="M397 509L423 518L397 528Z" fill="#f6d27a"/>
+      <path d="M452 539V503"/>
+      <path class="cover-flag" d="M452 503L477 512L452 522Z" fill="#a8d3e6"/>
+      <path d="M508 539V503"/>
+      <path class="cover-flag" d="M508 503L533 512L508 522Z" fill="#f2a497"/>
+      <path d="M563 547V509"/>
+      <path class="cover-flag" d="M563 509L589 518L563 528Z" fill="#a8d3e6"/>
+      <path d="M619 559V524"/>
+      <path class="cover-flag" d="M619 524L644 533L619 543Z" fill="#f6d27a"/>
     </g>
     <g>
       <path d="M285 581Q480 526 675 581L654 681H306Z" fill="#a8d3e6"/>
@@ -1280,4 +1331,26 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
   </script>
 
 
+<script id="cover-motion-controls">
+(() => {
+  const cover = document.getElementById('hero-art');
+  if (!cover) return;
+  let reset;
+  function celebrate() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    clearTimeout(reset);
+    cover.classList.remove('is-celebrating');
+    void cover.getBoundingClientRect();
+    cover.classList.add('is-celebrating');
+    reset = setTimeout(() => cover.classList.remove('is-celebrating'), 1450);
+  }
+  cover.addEventListener('click', celebrate);
+  cover.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      celebrate();
+    }
+  });
+})();
+</script>
 </body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>
